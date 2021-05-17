@@ -53,9 +53,6 @@ int main()
 	pthread_t thread1, thread2;
 	pthread_create(&thread1, NULL, func1, &arg);
 	pthread_create(&thread2, NULL, func2, &arg);
-
-	getchar();
-
 	flag = false;
 	pthread_join(thread1, NULL);
 	pthread_join(thread2, NULL);
