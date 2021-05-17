@@ -11,11 +11,7 @@ sem_t sem;
 
 void* func1(void* args) {
 	while (flag) {
-		int rv = sem_trywait(&sem);
-		if (rv != 0) {
-			Sleep(1);
-		}
-		else {
+		
 			sem_trywait(&sem);
 			for (int i = 0; i < 10; i++) {
 				if (!flag) {
@@ -27,17 +23,13 @@ void* func1(void* args) {
 			}
 			sem_post(&sem);
 			Sleep(1);
-		}
+	
 		return NULL;
 	}
 }
 void* func2(void* args) {
 	while (flag) {
-		int rv = sem_trywait(&sem);
-		if (rv != 0) {
-			Sleep(1);
-		}
-		else {
+		
 			sem_trywait(&sem);
 			for (int i = 0; i < 10; i++) {
 				if (!flag) {
@@ -49,7 +41,7 @@ void* func2(void* args) {
 			}
 			sem_post(&sem);
 			Sleep(1);
-		}
+
 		return NULL;
 	}
 }
